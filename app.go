@@ -135,6 +135,7 @@ func getMux(w http.ResponseWriter, r *http.Request) {
 	id := str1[len(str1)-1:][0]
 	if checkId.MatchString(id) {
 		GetMeetingByID(w, id)
+		return
 	}
 	//if not then check if participant is present
 
