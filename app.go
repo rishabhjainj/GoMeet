@@ -1,7 +1,6 @@
 package main
 
 import (
-	. "./config"
 	. "./dao"
 	. "./models"
 	// myRouter "./router"
@@ -16,7 +15,6 @@ import (
 	"time"
 )
 
-var config = Config{}
 var dao = MeetingsDAO{}
 
 func getMeetingsByParticipant(w http.ResponseWriter, participant string) {
@@ -113,9 +111,9 @@ func respondWithJson(w http.ResponseWriter, code int, payload interface{}) {
 }
 
 func init() {
-	config.Read()
-	dao.Server = config.Server
-	dao.Database = config.Database
+	// config.Read()
+	dao.Server = "localhost"
+	dao.Database = "meetings_db"
 	dao.Connect()
 }
 
